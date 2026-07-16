@@ -229,3 +229,58 @@ button{
 }
 
 }
+/* ===========================
+   MOBILE ONLY
+   Desktop tidak berubah
+=========================== */
+
+@media screen and (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container,
+    .track-container {
+        width: 94% !important;
+        max-width: 360px !important;
+        margin: 16px auto !important;
+        padding: 16px !important;
+    }
+
+    form,
+    .tracking-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    input,
+    input[type="text"],
+    input[type="search"] {
+        width: 100% !important;
+        height: 42px !important;
+        padding: 0 14px;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100% !important;
+        height: 42px !important;
+        font-size: 14px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
