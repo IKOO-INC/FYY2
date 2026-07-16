@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect
 from datetime import datetime
 from models import orders
-
+from zoneinfo import ZoneInfo
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 
 
@@ -23,11 +23,11 @@ def create():
 
         orders.insert_one({
             "tracking_code": tracking_code,
-            "created_at": datetime.utcnow(),
+            "created_at": datetime.now(ZoneInfo("Asia/Jakarta")),
             "statuses": [
                 {
                     "status": "Order Dibuat",
-                    "time": datetime.utcnow()
+                    "time": datetime.now(ZoneInfo("Asia/Jakarta"))
                 }
             ]
         })
@@ -70,7 +70,7 @@ def add_status(tracking_code):
                 "$push": {
                     "statuses": {
                         "status": status,
-                        "time": datetime.utcnow()
+                        "time": datetime.now(ZoneInfo("Asia/Jakarta"))
                     }
                 }
             }
