@@ -5,7 +5,7 @@ tracking_bp = Blueprint("tracking", __name__)
 
 @tracking_bp.route('/')
 def bsdchdf():
-    return redirect('/tracking')
+    return render_template('landing.html')
 
 @tracking_bp.route("/tracking", methods=["GET", "POST"])
 def tracking():
